@@ -1,5 +1,6 @@
 const { StatusCodes } = require('http-status-codes');
-const errorHandlerMiddleware = (err, req, res, next) => {
+
+module.exports.errorHandlerMiddleware = (err, req, res, next) => {
   console.log(err);
   let customError = {
     // set default
@@ -26,4 +27,4 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   return res.status(customError.statusCode).json({ message: customError.msg });
 };
 
-module.exports = errorHandlerMiddleware;
+;
